@@ -18,7 +18,7 @@
 <body>
 
     <header>
-        <h1>
+        <h1 class="text-center mb-5">
             Comics List
         </h1>
     </header>
