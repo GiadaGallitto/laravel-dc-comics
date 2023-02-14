@@ -4,6 +4,11 @@
     <div class="comics">
         <div class="container">
             <div class="row justify-content-around">
+                <div class="col-12 d-flex justify-content-end mb-3">
+                    <a class="btn btn-outline-primary" href="{{route('comics.create')}}">
+                        Add new Comic
+                    </a>
+                </div>
                 <table class="table table-hover">
                     <thead>
                         <tr>
