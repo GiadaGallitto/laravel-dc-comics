@@ -22,7 +22,7 @@
 
                         <div class="mb-3">
                             <label for="sale_date">Sale Date</label>
-                            <input type="text" class="form-control" id="sale_date" name="sale_date">
+                            <input type="date" name="sale_date" id="sale_date" class="form-control">
                         </div>
 
                         <div class="mb-3">
@@ -37,7 +37,7 @@
 
                         <div class="mb-3">
                             <label for="description" class="form-label">Description</label>
-                            <textarea name="" id="description" class="form-control" name="description"></textarea>
+                            <input type="text" id="description" class="form-control" name="description">
                         </div>
 
                         <div class="mb-3">

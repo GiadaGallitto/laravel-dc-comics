@@ -16,7 +16,7 @@
                             <h4>{{$comic->series}}</h4>
                         </div>
                         <p><strong>Sale date: </strong>{{$comic->sale_date}}</p>
-                        <h5><strong>Price: </strong>{{$comic->price}}</h5>
+                        <h5><strong>Price: </strong>{{$comic->price}} &euro;</h5>
                         <span><strong>Type: </strong>{{$comic->type}}</span>
                         <p class="mt-2"><strong>Description: </strong><br>
                             {{$comic->description}}
