@@ -28,6 +28,8 @@
                             <td>{{$comic->type}}</td>
                             <td>
                                 <a class="btn btn-sm btn-outline-primary" href="{{route('comics.show', $comic->id)}}">Show</a>
+                                <a class="btn btn-sm btn-outline-warning" href="{{route('comics.edit', $comic->id)}}">Edit</a>
+                                <a class="btn btn-sm btn-outline-danger" href="#">Delete</a>
                             </td>
                         </tr>
                         @endforeach
