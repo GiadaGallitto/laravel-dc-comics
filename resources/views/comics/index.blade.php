@@ -29,7 +29,11 @@
                             <td>
                                 <a class="btn btn-sm btn-outline-primary" href="{{route('comics.show', $comic->id)}}">Show</a>
                                 <a class="btn btn-sm btn-outline-warning" href="{{route('comics.edit', $comic->id)}}">Edit</a>
-                                <a class="btn btn-sm btn-outline-danger" href="#">Delete</a>
+                                <form class="d-inline" action="{{route('comics.destroy', $comic->id)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-sm btn-outline-danger">Delete</button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach

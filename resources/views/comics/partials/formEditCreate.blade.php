@@ -1,6 +1,6 @@
 <form action="{{ route($route, $comic->id) }}" method="POST">
     @csrf
-    @method('$method')
+    @method($method)
 
     <div class="mb-3">
         <label for="title" class="form-label">Title</label>
