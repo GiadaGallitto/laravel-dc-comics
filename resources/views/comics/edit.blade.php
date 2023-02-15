@@ -8,7 +8,7 @@
                     <h6>Enter the data of the comic and press the button to send it to the database</h6>
                 </div>
                 <div class="col-12">
-                    <form action="{{ route('comics.show'), $comic->id }}" method="POST">
+                    <form action="{{ route('comics.update', $comic->id) }}" method="POST">
                         @csrf
                         @method('PUT')
 
