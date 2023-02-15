@@ -29,7 +29,7 @@
                             <td>
                                 <a class="btn btn-sm btn-outline-primary" href="{{route('comics.show', $comic->id)}}">Show</a>
                                 <a class="btn btn-sm btn-outline-warning" href="{{route('comics.edit', $comic->id)}}">Edit</a>
-                                <form class="d-inline" action="{{route('comics.destroy', $comic->id)}}" method="POST">
+                                <form class="d-inline-block form-delete" action="{{route('comics.destroy', $comic->id)}}" method="POST" data-element-name="{{$comic->title}}">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-sm btn-outline-danger">Delete</button>
@@ -42,4 +42,8 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+    @vite('resources/js/delete.js')
 @endsection
