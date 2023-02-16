@@ -28,7 +28,8 @@ class ComicController extends Controller
     public function create()
     {
         //
-        return view('comics.create');
+        $comic = new Comic();
+        return view('comics.create', compact('comic'));
     }
 
     /**
@@ -50,6 +51,9 @@ class ComicController extends Controller
         //     $newComic->sale_date = $data['sale_date'];
         //     $newComic->type = $data['type'];
         //     $newComic->save();
+        $request->validate([
+            'title'=> 'required'
+        ]);
 
             $newComic = new Comic();
             $newComic->fill($data);

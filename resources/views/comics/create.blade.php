@@ -10,7 +10,8 @@
                 <div class="col-12">
                     @include('comics.partials.formEditCreate',
                     ['route'=> 'comics.store',
-                    'method'=>'POST'])
+                    'method'=>'POST', 
+                    'comic'=> $comic ])
                 </div>
             </div>
         </div>
