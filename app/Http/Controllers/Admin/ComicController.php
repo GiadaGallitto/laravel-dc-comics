@@ -13,6 +13,46 @@ class ComicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $rules;
+    public $messages;
+
+    public function __contruct(){
+        $this->rules = [
+            'title'=> 'required|min:5|max:100',
+            'description'=> 'required|min:15',
+            'thumb'=> 'required|url',
+            'price'=> 'required|numeric',
+            'series'=> 'required|min:5|max:100',
+            'sale_date'=> 'required',
+            'type'=> 'required|min:2|max:100',
+        ];
+
+        $this->messages = [
+            'title.required'=>'Inserisci un titolo',
+            'title.min'=>'Il titolo è troppo corto',
+            'title.max'=>'Credo tu abbia esagerato coi caratteri del titolo',
+
+            'description.required'=>'Serve una descrizione',
+            'description.min'=>'Credo tu possa impegnarti ad aggiungere altro nella descrizione',
+
+            'thumb.required'=>'Mi serve un\'immagine',
+            'thumb.url'=>'Non penso che quel url sia valido sai?',
+
+            'price.required'=>'Lo diamo gratis questo comic?Inserisci un prezzo va',
+            'price.numeric'=>'credo che i soldi funzionino ancora coi numeri',
+
+            'series.required'=>'Inserire la serie',
+            'series.min'=>'Serie troppo corta',
+            'series.max'=>'Ok forse la serie è un po\' lunghetta',
+
+            'sale_date.required'=>'Penso che abbia una data, no?',
+
+            'type.required'=>'Manca la tipologia',
+            'type.min'=>'Tipologia troppo corta',
+            'type.max'=>'Tipologia troppo lunga',
+        ];
+    }
+    
     public function index()
     {
         //
@@ -51,39 +91,7 @@ class ComicController extends Controller
         //     $newComic->sale_date = $data['sale_date'];
         //     $newComic->type = $data['type'];
         //     $newComic->save();
-        $request->validate([
-            'title'=> 'required|min:5|max:100',
-            'description'=> 'required|min:15',
-            'thumb'=> 'required|url',
-            'price'=> 'required|numeric',
-            'series'=> 'required|min:5|max:100',
-            'sale_date'=> 'required',
-            'type'=> 'required|min:2|max:100',
-        ],
-        [
-            'title.required'=>'Inserisci un titolo',
-            'title.min'=>'Il titolo è troppo corto',
-            'title.max'=>'Credo tu abbia esagerato coi caratteri del titolo',
-
-            'description.required'=>'Serve una descrizione',
-            'description.min'=>'Credo tu possa impegnarti ad aggiungere altro nella descrizione',
-
-            'thumb.required'=>'Mi serve un\'immagine',
-            'thumb.url'=>'Non penso che quel url sia valido sai?',
-
-            'price.required'=>'Lo diamo gratis questo comic?Inserisci un prezzo va',
-            'price.numeric'=>'credo che i soldi funzionino ancora coi numeri',
-
-            'series.required'=>'Inserire la serie',
-            'series.min'=>'Serie troppo corta',
-            'series.max'=>'Ok forse la serie è un po\' lunghetta',
-
-            'sale_date.required'=>'Penso che abbia una data, no?',
-
-            'type.required'=>'Manca la tipologia',
-            'type.min'=>'Tipologia troppo corta',
-            'type.max'=>'Tipologia troppo lunga',
-        ]);
+        $request->validate($this->rules, $this->messages);
 
             $newComic = new Comic();
             $newComic->fill($data);
@@ -160,7 +168,7 @@ class ComicController extends Controller
             'type.min'=>'Tipologia troppo corta',
             'type.max'=>'Tipologia troppo lunga',
         ]);
-        
+
         $comic = Comic::findOrFail($id);
 
         $comic->update($formData);
